@@ -1,6 +1,6 @@
-package gameGlad;
+package gameGlad.Entitys;
 
-public class BodyEnt {
+public class Body {
 
     private String name;
     private int strength;

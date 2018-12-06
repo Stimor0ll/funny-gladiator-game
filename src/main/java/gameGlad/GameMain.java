@@ -1,5 +1,8 @@
 package gameGlad;
 
+import gameGlad.Entitys.Bot;
+import gameGlad.Entitys.Human;
+
 import java.util.Random;
 
 public class GameMain {
@@ -7,8 +10,8 @@ public class GameMain {
     public static void main(String[] args) {
 
 
-        HumanEnt player1 = new HumanEnt();
-        BotEnt Bot1 = new BotEnt();
+        Human player1 = new Human();
+        Bot Bot1 = new Bot();
 
 
         // random number from 0 to 9
