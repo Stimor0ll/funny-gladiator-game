@@ -1,6 +1,6 @@
 package gameGlad;
 
-public class LvlClass {
+public class Lvl {
 
     
 

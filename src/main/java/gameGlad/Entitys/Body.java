@@ -10,7 +10,6 @@ public class Body {
     private int level;
 
 
-
     public String getName() {
         return name;
     }
