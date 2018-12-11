@@ -13,7 +13,7 @@ public class GameMain {
         Bot bot1 = new Bot();
 
         Random rnd = new Random();
-        int randomStats = 1 + rnd.nextInt(1);
+        int randomStats = 1 + rnd.nextInt(2);
 
         Random rnd2 = new Random();
         int randomNameNr = rnd2.nextInt(3);
@@ -43,6 +43,7 @@ public class GameMain {
         player1.setDamage(getBaseDmg.getBaseDmg(player1.getStrength(), bot1.getDefence()));
         bot1.setDamage(getBaseDmg.getBaseDmg(bot1.getStrength(), player1.getDefence()));
 
+
 //        Counting getCritChance = new Counting();
 //        int player1CritChance = getCritChance.getCritChance(player1.getAgility());
 //        int bot1CritChance = getCritChance.getCritChance(bot1.getAgility());
@@ -50,15 +51,9 @@ public class GameMain {
         Counting getFinalDmg = new Counting();
 
 
-
-
-
-
-
-
     }
 
-    }
+}
 
 
 

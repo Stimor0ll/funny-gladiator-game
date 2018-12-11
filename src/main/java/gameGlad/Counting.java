@@ -26,29 +26,23 @@ public class Counting {
 
     }
 
-    public boolean willIHit() {
+    public int willItHit() {
 
-        if (Math.random() * 100 < 10) {
-
-            return false;
-
+        if (Math.random() * 100 > 10) {
+            return 1;
         }
-        return true;
+        return 2;
     }
 
 
-    public String choseSwing(int pSwing) {
+    public int choseSwing(int personSwingtype) {
 
-        if (pSwing == 1) {
-            return hardOrNormal.values()[0].toString();
+        if (personSwingtype == 1) {
+            return 1;
         }
-        return hardOrNormal.values()[1].toString();//todo truputi nesaugu su if'e
+        return 2;
 
     }
-
-    public enum hardOrNormal {HARD, NORMAL}
-
-    ;
 
 
     public int getBaseDmg(int gladiator1Str, int gladiator2Def) {
