@@ -8,6 +8,25 @@ public class Body {
     private int agility;
     private int health;
     private int level;
+    private int damage;
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public int getCritchance() {
+        return critchance;
+    }
+
+    public void setCritchance(int critchance) {
+        this.critchance = critchance;
+    }
+
+    private int critchance;
 
 
     public String getName() {

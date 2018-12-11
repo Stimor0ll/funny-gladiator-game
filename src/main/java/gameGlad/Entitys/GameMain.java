@@ -32,24 +32,36 @@ public class GameMain {
         bot1.setAgility(randomStats);
         bot1.setDefence(randomStats);
         bot1.setName(botname.botName(randomNameNr));
-        bot1.setHealth(50 + randomStats * 10);
+        bot1.setHealth(80 + randomStats * 10);
         bot1.setLevel(1);
 
 
         Counting getBaseDmg = new Counting();
-        int player1BaseDmg = getBaseDmg.getBaseDmg(player1.getStrength(), bot1.getDefence());
-        int bot1BaseDmg = getBaseDmg.getBaseDmg(bot1.getStrength(), player1.getDefence());
+        getBaseDmg.getBaseDmg(player1.getStrength(), bot1.getDefence());
+        getBaseDmg.getBaseDmg(bot1.getStrength(), player1.getDefence());
 
+        player1.setDamage(getBaseDmg.getBaseDmg(player1.getStrength(), bot1.getDefence()));
+        bot1.setDamage(getBaseDmg.getBaseDmg(bot1.getStrength(), player1.getDefence()));
 
-        Counting getCritChance = new Counting();
-        int player1CritChance = getCritChance.getCritChance(player1.getAgility());
-        int bot1CritChance = getCritChance.getCritChance(bot1.getAgility());
-
+//        Counting getCritChance = new Counting();
+//        int player1CritChance = getCritChance.getCritChance(player1.getAgility());
+//        int bot1CritChance = getCritChance.getCritChance(bot1.getAgility());
 
         Counting getFinalDmg = new Counting();
 
 
 
 
+
+
+
+
     }
-}
+
+    }
+
+
+
+
+
+

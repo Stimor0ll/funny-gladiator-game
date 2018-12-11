@@ -26,6 +26,30 @@ public class Counting {
 
     }
 
+    public boolean willIHit() {
+
+        if (Math.random() * 100 < 10) {
+
+            return false;
+
+        }
+        return true;
+    }
+
+
+    public String choseSwing(int pSwing) {
+
+        if (pSwing == 1) {
+            return hardOrNormal.values()[0].toString();
+        }
+        return hardOrNormal.values()[1].toString();//todo truputi nesaugu su if'e
+
+    }
+
+    public enum hardOrNormal {HARD, NORMAL}
+
+    ;
+
 
     public int getBaseDmg(int gladiator1Str, int gladiator2Def) {
         return gladiator1Str * 10 - gladiator2Def * 5;
@@ -43,8 +67,8 @@ public class Counting {
         return gladBaseDmg;
     }
 
-    public String hit(int gladHealth, int gladFinalDmg) {
-        return "Health Left " + (gladHealth - gladFinalDmg);
+    public int hit(int gladHealth, int gladFinalDmg) {
+        return gladHealth - gladFinalDmg;
     }
 }
 
@@ -72,7 +96,7 @@ public class Counting {
 //        int humanAttackDmg;
 //        int botAttackDmg;
 //
-     /*  while (humFightHealth >= 0 || botFightHealth >= 0) {
+     /*  while (humFightHealth >= 0 && botFightHealth >= 0) {
            //fight
            //humanAttackDmg = getAttackDmg(humBaseDmg, human.agility);
        }
