@@ -15,6 +15,7 @@ public class Fighting {
         Counting swing = new Counting();
 
 
+
         int player1Health = player1.getHealth();
         int bot1Health = bot1.getHealth();
         int player1CritChance = getCritChance.getCritChance(player1.getAgility());
@@ -29,7 +30,7 @@ public class Fighting {
                 bot1Health = bot1.getHealth() - getFinalDmg.getFinalDmg(player1CritChance, player1.getDamage());
                 bot1.setHealth(bot1Health);
 
-            } else if (swing.choseSwing(1) == 1 && gladSwing.willItHit() == 1) {
+            } else if (swing.choseSwing(1) == 1 && gladSwing.willItHit() == 2) {
                 System.out.println("You miss your enemy, if you want hit your target next time keep your eyes OPEN");
             }
             if (swing.choseSwing(2) == 2) {
@@ -38,7 +39,22 @@ public class Fighting {
 
 
             }
-//todo Bot decision mech ( hard or normal ), 2) reward a Lvl and some points to spend after victory.
+            if (swing.botAttackOption(bot1.getHealth(), player1.getHealth()) == 1 && gladSwing.willItHit() == 1) {
+                bot1CritChance = bot1CritChance + 10;
+                getFinalDmg.getFinalDmg(bot1CritChance, bot1.getDamage());
+                player1Health = player1.getHealth() - getFinalDmg.getFinalDmg(player1CritChance, bot1.getDamage());
+                player1.setHealth(player1Health);
+
+            } else if (swing.botAttackOption(bot1.getHealth(), player1.getHealth()) == 1 && gladSwing.willItHit() == 2) {
+                System.out.println("You miss your enemy, if you want hit your target next time keep your eyes OPEN");
+            }
+            if (swing.botAttackOption(bot1.getHealth(), player1.getHealth()) == 2) {
+                player1Health = player1.getHealth() - bot1.getDamage();
+                player1.setHealth(player1Health);
+
+
+            }
+//todo  1) reward a Lvl and some points to spend after victory. 2) paslifuoti struktura.
 
 
         }

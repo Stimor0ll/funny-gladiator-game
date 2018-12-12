@@ -26,9 +26,19 @@ public class Counting {
 
     }
 
+
+
+    public int botAttackOption(int botHp, int playerHp){
+        if(botHp - playerHp >= 20 || botHp - playerHp >= -20){
+            return 1;
+        }
+
+        return 2;
+    }
+
     public int willItHit() {
 
-        if (Math.random() * 100 > 10) {
+        if (Math.random() * 100 > 25) {
             return 1;
         }
         return 2;
@@ -106,10 +116,6 @@ public class Counting {
           */
 
 
-//todo 1) Fighting mechanics
-//todo 2) Block ( 2 attack types )
-//todo 3) Level.. // get lvl after victory + anounce " you can add 5 points to your skills"
-//todo 4) Bot decision to take attack 1 or attack 2. ( if player hp - bot hp <= 20 { take attack 2(hard) }
 
 
 
