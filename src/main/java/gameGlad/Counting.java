@@ -1,6 +1,9 @@
 package gameGlad;
 
 
+import gameGlad.Entitys.Bot;
+import gameGlad.Entitys.Human;
+
 public class Counting {
 
     public String botName(int rnd2) {
@@ -74,22 +77,57 @@ public class Counting {
     public int hit(int gladHealth, int gladFinalDmg) {
         return gladHealth - gladFinalDmg;
     }
+
+    public int hitBotsHealthHard(Human player1, Bot bot1){
+        Counting getCritChance = new Counting();
+        Counting getFinalDmg = new Counting();
+        int bot1Health = bot1.getHealth();
+        int player1CritChance = getCritChance.getCritChance(player1.getAgility());
+
+        player1CritChance = player1CritChance + 10;
+        getFinalDmg.getFinalDmg(player1CritChance, player1.getDamage());
+        bot1Health = bot1.getHealth() - getFinalDmg.getFinalDmg(player1CritChance, player1.getDamage());
+        bot1.setHealth(bot1Health);
+
+        return bot1Health;
+    }
+    public int hitPlayersHealthHard(Human player1, Bot bot1){
+        Counting getCritChance = new Counting();
+        Counting getFinalDmg = new Counting();
+        int player1Health = player1.getHealth();
+        int bot1CritChance = getCritChance.getCritChance(bot1.getAgility());
+
+        bot1CritChance = bot1CritChance + 10;
+        getFinalDmg.getFinalDmg(bot1CritChance, bot1.getDamage());
+        player1Health = player1.getHealth() - getFinalDmg.getFinalDmg(bot1CritChance, bot1.getDamage());
+        player1.setHealth(player1Health);
+
+        return  player1Health;
+    }
+    public int hitBotsHealthNormal(Human player1, Bot bot1){
+        int bot1Health = bot1.getHealth();
+
+        bot1Health = bot1.getHealth() - player1.getDamage();
+        bot1.setHealth(bot1Health);
+
+        return bot1Health;
+    }
+    public int hitPlayersHealthNormal(Human player1, Bot bot1){
+        int player1Health = player1.getHealth();
+
+        player1Health = player1.getHealth() - bot1.getDamage();
+        player1.setHealth(player1Health);
+
+        return player1Health;
+    }
+
+
+
 }
 
 
-//    public int swing(String type){
-//
-//        int swing = 0;
-//
-//        switch (type) {
-//            case normal:
-//                swing =
-//                break;
-//            case Hard:
-//                swing =
-//        }
-//        return 0;
-//    }
+
+
 
 
 //    public void fight(Human human, Human bot) {
@@ -100,20 +138,8 @@ public class Counting {
 //        int humanAttackDmg;
 //        int botAttackDmg;
 //
-     /*  while (humFightHealth >= 0 && botFightHealth >= 0) {
-           //fight
-           //humanAttackDmg = getAttackDmg(humBaseDmg, human.agility);
-       }
-       */
 
-         /*
 
-    enemy.hp -= enemydmg;
-    hero.hp -= herodmg;
-
-    if(Math.random() < hero.critchnc){
-    enemydmg = enemydmg * 2;
-          */
 
 
 

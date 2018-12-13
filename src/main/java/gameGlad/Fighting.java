@@ -8,11 +8,12 @@ public class Fighting {
 
     public void fight(Human player1, Bot bot1) {
 
-
         Counting getFinalDmg = new Counting();
         Counting getCritChance = new Counting();
         Counting gladSwing = new Counting();
         Counting swing = new Counting();
+        Counting hBhh = new Counting();
+        Counting hPhh = new Counting();
 
 
 
@@ -25,32 +26,34 @@ public class Fighting {
 
 
             if (swing.choseSwing(1) == 1 && gladSwing.willItHit() == 1) {
-                player1CritChance = player1CritChance + 10;
-                getFinalDmg.getFinalDmg(player1CritChance, player1.getDamage());
-                bot1Health = bot1.getHealth() - getFinalDmg.getFinalDmg(player1CritChance, player1.getDamage());
-                bot1.setHealth(bot1Health);
+
+                hBhh.hitBotsHealthHard(player1, bot1);
+//                player1CritChance = player1CritChance + 10;
+//                getFinalDmg.getFinalDmg(player1CritChance, player1.getDamage());
+//                bot1Health = bot1.getHealth() - getFinalDmg.getFinalDmg(player1CritChance, player1.getDamage());
+//                bot1.setHealth(bot1Health);
 
             } else if (swing.choseSwing(1) == 1 && gladSwing.willItHit() == 2) {
                 System.out.println("You miss your enemy, if you want hit your target next time keep your eyes OPEN");
             }
             if (swing.choseSwing(2) == 2) {
-                bot1Health = bot1.getHealth() - player1.getDamage();
-                bot1.setHealth(bot1Health);
-
+//                bot1Health = bot1.getHealth() - player1.getDamage();
+//                bot1.setHealth(bot1Health);
 
             }
             if (swing.botAttackOption(bot1.getHealth(), player1.getHealth()) == 1 && gladSwing.willItHit() == 1) {
-                bot1CritChance = bot1CritChance + 10;
-                getFinalDmg.getFinalDmg(bot1CritChance, bot1.getDamage());
-                player1Health = player1.getHealth() - getFinalDmg.getFinalDmg(player1CritChance, bot1.getDamage());
-                player1.setHealth(player1Health);
+                hPhh.hitPlayersHealthHard(player1, bot1);
+//                bot1CritChance = bot1CritChance + 10;
+//                getFinalDmg.getFinalDmg(bot1CritChance, bot1.getDamage());
+//                player1Health = player1.getHealth() - getFinalDmg.getFinalDmg(player1CritChance, bot1.getDamage());
+//                player1.setHealth(player1Health);
 
             } else if (swing.botAttackOption(bot1.getHealth(), player1.getHealth()) == 1 && gladSwing.willItHit() == 2) {
                 System.out.println("You miss your enemy, if you want hit your target next time keep your eyes OPEN");
             }
             if (swing.botAttackOption(bot1.getHealth(), player1.getHealth()) == 2) {
-                player1Health = player1.getHealth() - bot1.getDamage();
-                player1.setHealth(player1Health);
+//                player1Health = player1.getHealth() - bot1.getDamage();
+//                player1.setHealth(player1Health);
 
 
             }
