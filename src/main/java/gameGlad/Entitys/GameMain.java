@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class GameMain {
 
+
     public static void main(String[] args) {
 
         Human player1 = new Human();
@@ -16,7 +17,8 @@ public class GameMain {
         int randomStats = 1 + rnd.nextInt(2);
 
         Random rnd2 = new Random();
-        int randomNameNr = rnd2.nextInt(3);
+        int randomNameNr = rnd2.nextInt(5);
+
 
         Counting botname = new Counting();
         botname.botName(randomNameNr);// visos eilutes prasme String
@@ -44,16 +46,8 @@ public class GameMain {
         bot1.setDamage(getBaseDmg.getBaseDmg(bot1.getStrength(), player1.getDefence()));
 
 
-//        Counting getCritChance = new Counting();
-//        int player1CritChance = getCritChance.getCritChance(player1.getAgility());
-//        int bot1CritChance = getCritChance.getCritChance(bot1.getAgility());
-
         Fighting f = new Fighting();
         f.fight(player1, bot1);
-
-
-
-
 
 
     }

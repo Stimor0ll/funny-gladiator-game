@@ -6,64 +6,30 @@ import gameGlad.Entitys.Human;
 
 public class Counting {
 
-    public static int CHANCE_TO_MISS = 25;
-    public static int CRIT_MULTIPLYER = 6;
-    public static int CRIT_DMG_MULTIPLYER = 2;
-    public static int CRIT_CHANCE_INCREASE = 10;
-    public static int DAMAGE_MULTIPLYER = 10;
-    public static int DEFENCE_MULTIPLYER = 5;
-    public static int BOT_WINNING = 20;
-    public static int BOT_LOSING = -20;
+    private static final int CHANCE_TO_MISS = 25;
+    private static final int CRIT_MULTIPLYER = 6;
+    private static final int CRIT_DMG_MULTIPLYER = 2;
+    private static final int CRIT_CHANCE_INCREASE = 10;
+    private static final int DAMAGE_MULTIPLYER = 10;
+    private static final int DEFENCE_MULTIPLYER = 5;
+    private static final int BOT_WINNING = 20;
+    private static final int BOT_LOSING = -20;
+
+
+
+    public enum funnyBotName{DOM, BOB, TOD, ROB, CRAB, BIGBOSSJAVA};
 
     public String botName(int rnd2) {
-
-        String botName = null;
-
-        switch (rnd2) {
-            case 0:
-                botName = "DoM";
-                break;
-            case 1:
-                botName = "BoB";
-                break;
-            case 2:
-                botName = "ToD";
-                break;
-            case 3:
-                botName = "RoB";
-                break;
-
-        }
-        return botName;
-
+        return funnyBotName.values()[rnd2].toString();
     }
 
-    public int botAttackOption(int botHp, int playerHp){
-        if(botHp - playerHp >= BOT_WINNING || botHp - playerHp >= BOT_LOSING){
-            return 1;
-        }
-
-        return 2;
+    public boolean botAttackOption(int botHp, int playerHp){
+        return (botHp - playerHp >= BOT_WINNING || botHp - playerHp >= BOT_LOSING);
     }
 
-    public int willItHit() {
-
-        if (Math.random() * 100 > CHANCE_TO_MISS) {
-            return 1;
-        }
-        return 2;
+    public boolean willItHit() {
+        return (Math.random() * 100 > CHANCE_TO_MISS) ;
     }
-
-
-////    public int choseSwing(int personSwingtype) {
-////
-////        if (personSwingtype == 1) {
-////            return 1;
-////        }
-////        return 2;
-//
-//    }
-
 
     public int getBaseDmg(int gladiator1Str, int gladiator2Def) {
         return gladiator1Str * DAMAGE_MULTIPLYER - gladiator2Def * DEFENCE_MULTIPLYER;
@@ -81,9 +47,6 @@ public class Counting {
         return gladBaseDmg;
     }
 
-    public int hit(int gladHealth, int gladFinalDmg) {
-        return gladHealth - gladFinalDmg;
-    }
 
     public int hitBotsHealthHard(Human player1, Bot bot1){
         Counting getCritChance = new Counting();
@@ -128,29 +91,4 @@ public class Counting {
 
         return player1Health;
     }
-
-
-
 }
-
-
-
-
-
-
-//    public void fight(Human human, Human bot) {
-//        int humBaseDmg = getBaseDmg(human.str, bot.def);
-//        int botBaseDmg = getBaseDmg(bot.str, human.def);
-//        int humFightHealth = human.health;
-//        int botFightHealth = bot.health;
-//        int humanAttackDmg;
-//        int botAttackDmg;
-//
-
-
-
-
-
-
-
-
