@@ -1,13 +1,13 @@
 package gameGlad.Entitys;
 
 import gameGlad.Counting;
+import gameGlad.Fighting;
 
 import java.util.Random;
 
 public class GameMain {
 
     public static void main(String[] args) {
-
 
         Human player1 = new Human();
         Bot bot1 = new Bot();
@@ -17,6 +17,7 @@ public class GameMain {
 
         Random rnd2 = new Random();
         int randomNameNr = rnd2.nextInt(3);
+
         Counting botname = new Counting();
         botname.botName(randomNameNr);// visos eilutes prasme String
 
@@ -35,7 +36,6 @@ public class GameMain {
         bot1.setHealth(80 + randomStats * 10);
         bot1.setLevel(1);
 
-
         Counting getBaseDmg = new Counting();
         getBaseDmg.getBaseDmg(player1.getStrength(), bot1.getDefence());
         getBaseDmg.getBaseDmg(bot1.getStrength(), player1.getDefence());
@@ -48,7 +48,10 @@ public class GameMain {
 //        int player1CritChance = getCritChance.getCritChance(player1.getAgility());
 //        int bot1CritChance = getCritChance.getCritChance(bot1.getAgility());
 
-        Counting getFinalDmg = new Counting();
+        Fighting f = new Fighting();
+        f.fight(player1, bot1);
+
+
 
 
 
